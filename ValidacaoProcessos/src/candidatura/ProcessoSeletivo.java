@@ -19,6 +19,7 @@ public class ProcessoSeletivo {
          System.out.println("Candidato de nº" + (indice + 1) + " é o " + selecionados[indice]);
      }
      System.out.println("Forma abeviada de iteracao(for each):\n");
+        System.out.println("Forma abeviada de iteracao(for each):\n");
 
      for(String candidato: selecionados) {
          System.out.println(candidato);
