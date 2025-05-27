@@ -13,7 +13,7 @@ public class Problem {
 		for (int i = 0; i <  C; i++) {
 			nome = leitor.next();
 			N = leitor.nextInt();
-			if (nome.equals("Thor") && N == 1000) 
+			if (nome.equals("Thor")) 
                 System.out.println(    "Y"     );
 			else System.out.println( "N");
 		}

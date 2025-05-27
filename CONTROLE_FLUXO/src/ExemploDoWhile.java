@@ -11,6 +11,9 @@ public class ExemploDoWhile {
             System.err.println("Contador atual: "+ contador);    
         } while (contador > 5);
 
+        System.out.println("Fim do programa");
+
+
     }
     
 }
