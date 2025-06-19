@@ -1,4 +1,5 @@
 package candidatura;
+import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.ThreadLocalRandom;
 
@@ -7,14 +8,17 @@ public class ProcessoSeletivo {
     public static void main(String[] args) {
         System.out.println("Processo Seletivo");
         Scanner scanner = new Scanner(System.in);
-        double salarioPretendido;
+        String [] candidatos = {"JOAO", "EVA", "BRUNA", "MARIA", "EDUARDO"};
 
-        selecaoCandidatos();
+        for(String candidato: candidatos){
+            entrandoContato(candidato);
+        }
 
     }
 
     static void imprimirCandidatosSelecionados(){
      String [] selecionados = {"Maria", "Joao", "Lucas", "Johnny"};
+
      for (int indice = 0; indice < selecionados.length; indice++) {
          System.out.println("Candidato de nº" + (indice + 1) + " é o " + selecionados[indice]);
      }
@@ -23,7 +27,7 @@ public class ProcessoSeletivo {
 
      for(String candidato: selecionados) {
          System.out.println(candidato);
-     }
+        }
 
     }
 
@@ -78,5 +82,29 @@ public class ProcessoSeletivo {
         return ThreadLocalRandom.current().nextDouble(1800,2200);
     }
 
+    static boolean atender(){
+        return new Random().nextInt(3) ==1;
+    }
 
+    static void entrandoContato(String candidato){
+        int tentativasRealizadas = 1;
+        boolean continuarTentando = true;
+        boolean atendeu= false;
+
+        do {
+            atendeu = atender();
+            continuarTentando = !atendeu;
+            if(continuarTentando){
+                tentativasRealizadas++;
+            }
+            else{
+                System.out.println("CONTATADO COM SUCESSO");
+            }
+        }while (continuarTentando && tentativasRealizadas < 3);
+
+        if(atendeu){
+            System.out.println("CONTATADO COM " + candidato + " na " + tentativasRealizadas + " tentativas");
+        }
+
+    }
 }
